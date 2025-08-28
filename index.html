@@ -1,31 +1,25 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Segurança Digital - Senha Segura</title>
+    <title>Gerador de Senhas Seguras</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Calculadora de Entropia de Senha</h1>
+        <h1>Gerador de Senhas Seguras</h1>
         
-        <!-- Campo de senha -->
-        <input type="text" id="senha" placeholder="Digite sua senha" oninput="calcularEntropia()">
+        <label for="passwordLength">Comprimento da Senha:</label>
+        <input type="number" id="passwordLength" value="12" min="1" max="50">
         
-        <!-- Exibição da entropia -->
-        <p>Entropia da Senha: <span id="entropia">0</span> bits</p>
+        <button id="generateButton">Gerar Senha</button>
+        
+        <p id="generatedPassword">Senha Gerada: <span></span></p>
+        
+        <p id="entropyValue">Entropia: 0 bits</p>
     </div>
 
-    <script>
-        // Função para calcular a entropia da senha
-        function calcularEntropia() {
-            const senha = document.getElementById('senha').value;
-            const comprimento = senha.length;
-            const caracteresPossiveis = 94; // 26+26+10+32 (letras maiúsculas, minúsculas, números e caracteres especiais)
-            const entropia = comprimento * Math.log2(caracteresPossiveis);
-            document.getElementById('entropia').textContent = entropia.toFixed(2); // Exibe a entropia
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
